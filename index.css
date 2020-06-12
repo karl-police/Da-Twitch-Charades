@@ -3007,9 +3007,6 @@ input[type=button].btn-block {
     transition: none;
   }
 }
-.no-collapse-animation.collapsing {
-  transition: none;
-}
 
 .dropup,
 .dropright,
