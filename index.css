@@ -2996,6 +2996,9 @@ input[type=button].btn-block {
   display: none;
 }
 
+.no-collapse-animation.collapsing {
+  transition: none;
+}
 .collapsing {
   position: relative;
   height: 0;
@@ -3006,9 +3009,6 @@ input[type=button].btn-block {
   .collapsing {
     transition: none;
   }
-}
-.no-collapse-animation.collapsing {
-  transition: none!important;
 }
 
 .dropup,
