@@ -3008,7 +3008,7 @@ input[type=button].btn-block {
   }
 }
 .no-collapse-animation.collapsing {
-  transition: none;
+  transition: none!important;
 }
 
 .dropup,
