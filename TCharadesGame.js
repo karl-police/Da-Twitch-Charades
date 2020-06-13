@@ -456,7 +456,15 @@ function CustomWords_GetEmotes() {
       // if successful
       if (e.target.status == 200) {
         var emotesData = JSON.parse(e.target.response);
-        console.log(emotesData);
+        
+      if (document.getElementById("bttv_import_toggle").checked == true) {
+        let emotesText = "";
+        emotesData.channelEmotes.forEach(function(data) { emotesText += data.code + " > " + "https://cdn.betterttv.net/emote/" + data.id + "/3x" + " ::" + "\n" })
+        emotesData.sharedEmotes.forEach(function(data) { emotesText += data.code + " > " + "https://cdn.betterttv.net/emote/" + data.id + "/3x" + " ::" + "\n" })
+        
+        document.getElementById("customWords_textarea").value += "\n\n" + emotesText;
+      }
+        
       }
     }
   }
@@ -465,10 +473,5 @@ function CustomWords_GetEmotes() {
 }
 
 
-
 // Custom words emote fetcher.
 document.getElementById("customwords_getEmotes_btn").addEventListener("click", CustomWords_GetEmotes)
-
-
-
-
