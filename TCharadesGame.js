@@ -426,3 +426,49 @@ function openInNewTab(url) {
 //     console.log(err);
 //   });
 // }
+
+
+var CorsBypassURL = "https://cors-anywhere.herokuapp.com/";
+
+// XHR
+function Custom_GetEmotes() {
+  let xhr = new XMLHttpRequest();
+  var channelID;
+  // Requires OAuth thing
+  
+  if (document.getElementById("bttv_import_toggle").checked == true) {
+    channelID = document.getElementById("customwords_inputChannel_bttv").value; // has to be changed
+    
+    xhr.open("GET", "https://api.betterttv.net/3/cached/users/twitch/" + channelID, true);
+  }
+  else if (document.getElementById("ffz_import_toggle").checked == true) {
+   channelID = document.getElementById("customwords_inputChannel_bttv").value; // has to be changed
+   
+   xhr.open("GET", "https://api.betterttv.net/3/cached/users/twitch/" + channelID, true); 
+  }
+  xhr.onreadystatechange = XHROnReadyStateChange;
+  
+  
+  // Called whenever the readyState attribute in the XHR request changes.
+  function XHROnReadyStateChange(e) {
+    if (e.target.readyState == 4) {
+      
+      // if successful
+      if (e.target.status == 200) {
+        var emotesData = JSON.parse(e.target.response);
+        console.log(emotesData);
+      }
+    }
+  }
+  
+  xhr.send()
+}
+
+
+
+// Custom words emote fetcher.
+document.getElementById("customwords_getEmotes_btn").addEventListener("click", CustomWords_GetEmotes)
+
+
+
+
