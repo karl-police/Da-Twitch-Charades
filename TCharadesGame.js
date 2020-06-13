@@ -431,7 +431,7 @@ function openInNewTab(url) {
 var CorsBypassURL = "https://cors-anywhere.herokuapp.com/";
 
 // XHR
-function Custom_GetEmotes() {
+function CustomWords_GetEmotes() {
   let xhr = new XMLHttpRequest();
   var channelID;
   // Requires OAuth thing
